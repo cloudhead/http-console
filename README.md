@@ -80,7 +80,7 @@ When issuing *POST* and *PUT* commands, we have the opportunity to send data too
     ... {"name":"Roger"}
 
     HTTP/1.1 201 Created
-    Location: http://127.0.0.1/test/2fd9db055885e6982462a10e54003127
+    Location: http://127.0.0.1/rabbits/2fd9db055885e6982462a10e54003127
     Date: Mon, 31 May 2010 05:09:15 GMT
     Content-Length: 95
 
