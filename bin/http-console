@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+var path = require('path');
+
+require.paths.unshift(path.join(__dirname, '..', 'lib'));
+
+var parselmouth = require('parselmouth');
+
+var argv = process.argv.slice(2),
+    hostPort = argv.length ? argv.shift().replace('http://', '').split(':') : [],
+    host = hostPort[0] || '127.0.0.1',
+    port = hostPort[1] || 80
+    options = {};
+
+var console = new(parselmouth.Console)(host, port, options);
+
+console.initialize();
+
+
