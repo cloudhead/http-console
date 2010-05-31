@@ -90,8 +90,6 @@ When issuing *POST* and *PUT* commands, we have the opportunity to send data too
         rev: "1-0c3db91854f26486d1c3922f1a651d86"
     }
 
-Note that `POST /` is equivalent to just `POST`. This applies to all methods.
-
 ### setting headers #
 
 Sometimes, it's useful to set HTTP headers:
