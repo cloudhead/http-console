@@ -3,6 +3,9 @@ http-console
 
 > Speak HTTP like a local
 
+Talking to an HTTP server with `curl` can be fun, but most of the time it's a real `PITA`.
+There are a couple of other projects with the same intention, this one is better. Read on.
+
 synopsis
 --------
 
