@@ -12,20 +12,7 @@ Talking to an HTTP server with `curl` can be fun, but most of the time it's a `P
 synopsis
 --------
 
-    $ http-console 127.0.0.1:5984
-
-    http://127.0.0.1:5984/>
-    http://127.0.0.1:5984/> GET /
-
-    HTTP/1.1 200 OK
-    Date: Mon, 31 May 2010 04:43:39 GMT
-    Content-Type: text/plain;charset=utf-8
-    Content-Length: 41
-
-    {
-        couchdb: "Welcome",
-        version: "0.11.0"
-    }
+![http-console](http://dl.dropbox.com/u/251849/http-console.png)
 
 installation
 ------------
