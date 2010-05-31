@@ -4,7 +4,7 @@ var path = require('path');
 
 require.paths.unshift(path.join(__dirname, '..', 'lib'));
 
-var parselmouth = require('parselmouth');
+var httpConsole = require('http-console');
 
 var argv = process.argv.slice(2),
     hostPort = argv.length ? argv.shift().replace('http://', '').split(':') : [],
@@ -12,7 +12,7 @@ var argv = process.argv.slice(2),
     port = hostPort[1] || 80
     options = {};
 
-var console = new(parselmouth.Console)(host, port, options);
+var console = new(httpConsole.Console)(host, port, options);
 
 console.initialize();
 
