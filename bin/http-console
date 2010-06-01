@@ -9,9 +9,10 @@ var httpConsole = require('http-console');
 var argv = process.argv.slice(2),
     hostPort = argv.length ? argv.shift().replace('http://', '').split(':') : [],
     host = hostPort[0] || '127.0.0.1',
-    port = hostPort[1] || 80
+    ssl = (argv.length && argv.shift().toLowerCase() === '--ssl')
+    port = hostPort[1] || (ssl) ? 443 : 80
     cookies = argv.length && argv.shift().toLowerCase() === '--cookies'
-    options = {rememberCookies: cookies};
+    options = {rememberCookies: cookies, secure: ssl};
 
 var console = new(httpConsole.Console)(host, port, options);
 
