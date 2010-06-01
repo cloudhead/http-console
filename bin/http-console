@@ -10,7 +10,8 @@ var argv = process.argv.slice(2),
     hostPort = argv.length ? argv.shift().replace('http://', '').split(':') : [],
     host = hostPort[0] || '127.0.0.1',
     port = hostPort[1] || 80
-    options = {};
+    cookies = argv.length && argv.shift().toLowerCase() === '--cookies'
+    options = {rememberCookies: cookies};
 
 var console = new(httpConsole.Console)(host, port, options);
 
