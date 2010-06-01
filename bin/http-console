@@ -1,18 +1,37 @@
 #!/usr/bin/env node
 
-var path = require('path');
+var path = require('path'),
+    sys = require('sys');
 
 require.paths.unshift(path.join(__dirname, '..', 'lib'));
 
 var httpConsole = require('http-console');
 
-var argv = process.argv.slice(2),
+var argv = process.argv.slice(2), arg, option,
     hostPort = argv.length ? argv.shift().replace('http://', '').split(':') : [],
     host = hostPort[0] || '127.0.0.1',
-    ssl = (argv.length && argv.shift().toLowerCase() === '--ssl')
-    port = hostPort[1] || (ssl) ? 443 : 80
-    cookies = argv.length && argv.shift().toLowerCase() === '--cookies'
-    options = {rememberCookies: cookies, secure: ssl};
+    port = hostPort[1],
+    options = {
+        rememberCookies: false,
+        useSSL:          false
+    };
+
+while (arg = argv.shift()) {
+    if (option = arg.match(/^--(\w+)$/)) {
+        switch (option[1]) {
+            case 'cookies':
+                options.rememberCookies = true;
+                break;
+            case 'ssl':
+                options.useSSL = true;
+                break;
+            default:
+                sys.puts("Unrecognized option '" + option[0] + "'");
+                process.exit(1);
+        }
+    }
+}
+port = port || (options.useSSL ? 443 : 80);
 
 var console = new(httpConsole.Console)(host, port, options);
 
