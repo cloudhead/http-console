@@ -110,6 +110,15 @@ Removing headers is just as easy:
     http://127.0.0.1:5984/> \headers
     X-Lodge: black
 
+### cookies #
+
+You can enable cookie tracking with the `--cookies` option flag.
+To see what cookies are stored, use the `\cookies` command.
+
+### SSL #
+
+To enable SSL, pass the `--ssl` flag.
+
 ### quitting #
 
     Ctrl-D
