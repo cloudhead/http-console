@@ -17,7 +17,14 @@ synopsis
 installation
 ------------
 
+*http-console* was written for [node](http://nodejs.org), so make sure you have that installed
+first. Then you need [npm](http://github.com/isaacs/npm), node's package manager.
+
+Once you're all set, run:
+
     $ npm install http-console
+
+It'll download the dependencies, and install the command-line tool in `/usr/local/bin`.
 
 introduction
 ------------
