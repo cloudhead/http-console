@@ -8,12 +8,16 @@ require.paths.unshift(path.join(__dirname, '..', 'lib'));
 var httpConsole = require('http-console');
 
 var argv = process.argv.slice(2), arg, option,
-    hostPort = argv.length ? argv.shift().replace('http://', '').split(':') : [],
-    host = hostPort[0] || '127.0.0.1',
+    hostPort = argv.shift() || 'http://127.0.0.1:80',
+    protocol = hostPort.match(/^(https?)?/)[0] || 'http';
+
+hostPort = hostPort.replace(protocol + '://', '').split(':');
+
+var host = hostPort[0],
     port = hostPort[1],
     options = {
         rememberCookies: false,
-        useSSL:          false
+        useSSL:          protocol === 'https'
     };
 
 while (arg = argv.shift()) {
