@@ -124,11 +124,11 @@ To see what cookies are stored, use the `\cookies` command.
 
 ### SSL #
 
-To enable SSL, pass the `--ssl` flag.
+To enable SSL, pass the `--ssl` flag, or specify the address with `https`.
 
 ### quitting #
 
-    Ctrl-D
+    http://127.0.0.1:5984/> \q
 
 nuff' said.
 
