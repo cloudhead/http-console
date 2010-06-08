@@ -37,10 +37,6 @@ To connect, we run `http-console`, passing it the server host and port as such:
 
     $ http-console 127.0.0.1:5984 
 
-To have line-editing and command history, we can run it through `rlwrap`:
-
-    $ rlwrap http-console 127.0.0.1:5984
-
 ### navigating #
 
 Once connected, we should see the *http prompt*:
