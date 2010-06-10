@@ -26,6 +26,16 @@ Once you're all set, run:
 
 It'll download the dependencies, and install the command-line tool in `/usr/local/bin`.
 
+### Installing the bleeding edge #
+
+The latest release will often be available on npm as `http-console@latest`, so you can run:
+
+    $ npm install http-console@latest
+
+Alternatively, you can download a tarball of this repo, or clone it. Just make sure you have
+the latest version of node, from **github**. That's because http-console uses the new readline.js
+library in node edge.
+
 introduction
 ------------
 
