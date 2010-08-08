@@ -7,11 +7,25 @@ require.paths.unshift(path.join(__dirname, '..', 'lib'));
 
 var httpConsole = require('http-console');
 
+var help = [
+  'usage: http-console [host:port] [options]\n',
+  'options:',
+  '    --cookies      remember cookies',
+  '-v, --verbose      print requests',
+  '    --json         set "Content-Type" header to application/json',
+  '    --notimeout    don\'t timeout requests',
+  '    --ssl          create a secure connection',
+  '    --version      print version',
+  '-h, --help         display this message'
+].join('\n');
+
 var argv = process.argv.slice(2), args = [],
     arg, option,
     options = {
         rememberCookies: false,
         useSSL:          protocol === 'https',
+        json:            false,
+        timeout:         true,
         verbose:         false
     };
 
@@ -31,6 +45,16 @@ while (arg = argv.shift()) {
             case 'version':
                 sys.print('http-console v' + httpConsole.version);
                 process.exit(0);
+            case 'json':
+                options.json = true;
+                break;
+            case 'notimeout':
+                options.timeout = false;
+                break;
+            case 'h':
+            case 'help':
+                sys.print(help);
+                process.exit(0);
             default:
                 sys.print("http-console: unrecognized option '" + option[0] + "'");
                 process.exit(1);
@@ -40,7 +64,7 @@ while (arg = argv.shift()) {
     }
 }
 
-var hostPort = args.shift() || 'http://127.0.0.1:80',
+var hostPort = args.shift() || 'http://127.0.0.1:8080',
     protocol = hostPort.match(/^(https?)?/)[0] || 'http';
 
 hostPort = hostPort.replace(protocol + '://', '').split(':');
@@ -51,5 +75,4 @@ var host = hostPort[0],
 var console = new(httpConsole.Console)(host, port, options);
 
 console.initialize();
-
 
