@@ -102,6 +102,13 @@ When issuing *POST* and *PUT* commands, we have the opportunity to send data too
         rev: "1-0c3db91854f26486d1c3922f1a651d86"
     }
 
+Make sure you have your `Content-Type` header set properly, if the API requires it. More
+in the section below.
+
+> Note that if you're trying to POST to a form handler, you'll most probably want to send data
+in `multipart/form-data` format, such as `name=roger&hair=black`. http-console sends your POST/PUT data *as is*,
+so make sure you've got the format right, and the appropriate `Content-Type` header.
+
 ### setting headers #
 
 Sometimes, it's useful to set HTTP headers:
@@ -121,6 +128,15 @@ Removing headers is just as easy:
     http://127.0.0.1:5984/> Accept:
     http://127.0.0.1:5984/> \headers
     X-Lodge: black
+
+Because JSON is such a common data format, http-console has a way to automatically set
+the `Content-Type` header to `application/json`. Just pass the `--json` option when
+starting http-cosnole, or run the `\json` command:
+
+    $ http-console 127.0.0.1:5984 --json
+    http://127.0.0.1:5984/> \headers
+    Accept: */*
+    Content-Type: application/json
 
 ### cookies #
 
