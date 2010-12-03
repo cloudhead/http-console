@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var path = require('path'),
-    sys = require('sys');
+    sys = require('util');
 
 require.paths.unshift(path.join(__dirname, '..', 'lib'));
 
@@ -64,13 +64,24 @@ while (arg = argv.shift()) {
     }
 }
 
-var hostPort = args.shift() || 'http://127.0.0.1:8080',
-    protocol = hostPort.match(/^(https?)?/)[0] || 'http';
+var url      = args.shift() || 'http://127.0.0.1:8080',
+    protocol = url.match(/^(https?)?/)[0] || 'http';
 
-hostPort = hostPort.replace(protocol + '://', '').split(':');
+url = url.replace(protocol + '://', '').split('@');
 
-var host = hostPort[0],
-    port = hostPort[1] || (options.useSSL ? 443 : 80);
+var hostPort = url.pop().split(':'),
+    auth     = url.pop();
+
+if (auth) {
+    auth = auth.split(':');
+    options.auth = {
+        username: auth.shift(),
+        password: auth.shift()
+    };
+}
+
+var host = hostPort.shift(),
+    port = hostPort.shift() || (options.useSSL ? 443 : 80);
 
 var console = new(httpConsole.Console)(host, port, options);
 
