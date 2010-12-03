@@ -6,7 +6,7 @@
   "author"        : "Alexis Sellier <self@cloudhead.net>",
   "contributors"  : [],
   "dependencies"  : { "eyes": ">=0.1.4" },
-  "version"       : "0.5.0",
+  "version"       : "0.5.1",
   "main"          : "./lib/http-console",
   "directories"   : { "lib": "./lib", "test": "./test" },
   "bin"           : { "http-console": "./bin/http-console" },
