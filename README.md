@@ -117,31 +117,31 @@ Sometimes, it's useful to set HTTP headers:
     http://127.0.0.1:5984/> X-Lodge: black
 
 These headers are sent with all requests in this session. To see all active headers,
-run the `\headers` command:
+run the `.headers` command:
 
-    http://127.0.0.1:5984/> \headers
+    http://127.0.0.1:5984/> .headers
     Accept: application/json
     X-Lodge: black
 
 Removing headers is just as easy:
 
     http://127.0.0.1:5984/> Accept:
-    http://127.0.0.1:5984/> \headers
+    http://127.0.0.1:5984/> .headers
     X-Lodge: black
 
 Because JSON is such a common data format, http-console has a way to automatically set
 the `Content-Type` header to `application/json`. Just pass the `--json` option when
-starting http-cosnole, or run the `\json` command:
+starting http-cosnole, or run the `.json` command:
 
     $ http-console 127.0.0.1:5984 --json
-    http://127.0.0.1:5984/> \headers
+    http://127.0.0.1:5984/> .headers
     Accept: */*
     Content-Type: application/json
 
 ### cookies #
 
 You can enable cookie tracking with the `--cookies` option flag.
-To see what cookies are stored, use the `\cookies` command.
+To see what cookies are stored, use the `.cookies` command.
 
 ### SSL #
 
@@ -149,7 +149,7 @@ To enable SSL, pass the `--ssl` flag, or specify the address with `https`.
 
 ### quitting #
 
-    http://127.0.0.1:5984/> \q
+    http://127.0.0.1:5984/> .q
 
 nuff' said.
 
