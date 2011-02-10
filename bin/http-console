@@ -23,7 +23,7 @@ var help = [
 var argv = process.argv.slice(2), args = [],
     arg, option,
     options = {
-        rememberCookies: false,
+        rememberCookies: true,
         useSSL:          protocol === 'https',
         json:            false,
         timeout:         true,
@@ -31,10 +31,13 @@ var argv = process.argv.slice(2), args = [],
     };
 
 while (arg = argv.shift()) {
-    if (option = arg.match(/^--?(\w+)$/)) {
+    if (option = arg.match(/^--?([\w-]+)$/)) {
         switch (option[1]) {
             case 'cookies':
                 options.rememberCookies = true;
+                break;
+            case 'no-cookies':
+                options.rememberCookies = false;
                 break;
             case 'ssl':
                 options.useSSL = true;
