@@ -3,9 +3,8 @@
 var path = require('path'),
     sys = require('util');
 
-require.paths.unshift(path.join(__dirname, '..', 'lib'));
 
-var httpConsole = require('http-console');
+var httpConsole = require(path.join(__dirname, '../lib/http-console'));
 
 var help = [
   'usage: http-console [username:password@host:port] [options]',
@@ -79,7 +78,7 @@ var hostPort = url.pop().split(':'),
 if (auth) {
     auth = auth.split(':');
     options.auth = {
-        username: auth.shift(),
+        username: auth.shift().replace('%40', '@'),
         password: auth.shift()
     };
 }
@@ -90,4 +89,3 @@ var host = hostPort.shift(),
 var console = new(httpConsole.Console)(host, port, options);
 
 console.initialize();
-
