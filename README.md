@@ -131,7 +131,7 @@ Removing headers is just as easy:
 
 Because JSON is such a common data format, http-console has a way to automatically set
 the `Content-Type` header to `application/json`. Just pass the `--json` option when
-starting http-cosnole, or run the `.json` command:
+starting http-console, or run the `.json` command:
 
     $ http-console 127.0.0.1:5984 --json
     http://127.0.0.1:5984/> .headers
