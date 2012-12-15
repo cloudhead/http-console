@@ -20,11 +20,12 @@ installation
 *http-console* was written for [node](http://nodejs.org), so make sure you have that installed
 first. Then you need [npm](http://github.com/isaacs/npm), node's package manager.
 
-Once you're all set, run:
+Once you're all set, to install globally, run:
 
-    $ npm install http-console
+    $ npm install http-console -g
 
-It'll download the dependencies, and install the command-line tool in `/usr/local/bin`.
+It'll download the dependencies, and install the command-line tool in `/usr/local/bin` 
+(you may need to make use of `sudo` or equivalent to gain access).
 
 ### Installing the bleeding edge #
 
