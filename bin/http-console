@@ -22,7 +22,6 @@ var argv = process.argv.slice(2), args = [],
     arg, option,
     options = {
         rememberCookies: true,
-        useSSL:          protocol === 'https',
         json:            false,
         timeout:         true,
         verbose:         false
@@ -68,6 +67,8 @@ while (arg = argv.shift()) {
 
 var url      = args.shift() || 'http://127.0.0.1:8080',
     protocol = url.match(/^(https?)?/)[0] || 'http';
+
+options.useSSL = protocol === 'https';
 
 url = url.replace(protocol + '://', '').split('@');
 
