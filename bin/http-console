@@ -6,7 +6,7 @@ var path = require('path'),
 var httpConsole = require('../lib/http-console');
 
 var help = [
-  'usage: http-console [username:password@host:port] [options]',
+  'usage: http-console [username:password@host:port[/path]] [options]',
   '',
   'options:',
   '    --cookies      remember cookies',
@@ -72,7 +72,7 @@ options.useSSL = protocol === 'https';
 
 url = url.replace(protocol + '://', '').split('@');
 
-var hostPort = url.pop().split(':'),
+var hostPath = url.pop().split('/'),
     auth     = url.pop();
 
 if (auth) {
@@ -83,10 +83,13 @@ if (auth) {
     };
 }
 
+var hostPort = hostPath.shift().split(':'),
+    path     = hostPath.join('/');
+
 var host = hostPort.shift(),
     port = hostPort.shift() || (options.useSSL ? 443 : 80);
 
-var console = new(httpConsole.Console)(host, port, options);
+var console = new(httpConsole.Console)(host, port, path, options);
 
 console.initialize();
 
