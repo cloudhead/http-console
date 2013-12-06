@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-var path = require('path'),
-    sys = require('util');
+var path = require('path');
 
 var httpConsole = require('../lib/http-console');
 
@@ -44,7 +43,7 @@ while (arg = argv.shift()) {
                 options.verbose = true;
                 break;
             case 'version':
-                sys.print('http-console v' + httpConsole.version);
+                console.log('http-console v' + httpConsole.version);
                 process.exit(0);
             case 'json':
                 options.json = true;
@@ -54,10 +53,10 @@ while (arg = argv.shift()) {
                 break;
             case 'h':
             case 'help':
-                sys.print(help);
+                console.log(help);
                 process.exit(0);
             default:
-                sys.print("http-console: unrecognized option '" + option[0] + "'");
+                console.log("http-console: unrecognized option '" + option[0] + "'");
                 process.exit(1);
         }
     } else {
