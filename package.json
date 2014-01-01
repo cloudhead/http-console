@@ -5,7 +5,7 @@
   "keywords"      : ["http", "console", "repl"],
   "author"        : "Alexis Sellier <self@cloudhead.net>",
   "contributors"  : [],
-  "dependencies"  : { "eyes": ">=0.1.4" },
+  "dependencies"  : { "eyes": ">=0.1.4", "methods": "~0.1.0" },
   "version"       : "0.6.2",
   "main"          : "./lib/http-console",
   "directories"   : { "lib": "./lib", "test": "./test" },
