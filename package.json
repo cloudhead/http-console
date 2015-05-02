@@ -10,5 +10,7 @@
   "main"          : "./lib/http-console",
   "directories"   : { "lib": "./lib", "test": "./test" },
   "bin"           : { "http-console": "./bin/http-console" },
-  "engines"       : { "node": ">=0.12.0" }
+  "engines"       : { "node": ">=0.12.0" },
+  "licenses"      : [{ "type": "Apache 2.0", "url": "https://github.com/cloudhead/http-console/blob/master/LICENSE" }],
+  "repository"    : { "type": "git", "url": "https://github.com/cloudhead/http-console.git" }
 }
