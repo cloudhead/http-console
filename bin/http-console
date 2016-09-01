@@ -10,6 +10,7 @@ var help = [
   '',
   'options:',
   '    --cookies      remember cookies',
+  '    --no-cookies   do not remember cookies',
   '-v, --verbose      print requests',
   '    --json         set "Content-Type" header to application/json',
   '    --notimeout    don\'t timeout requests',
