@@ -1,9 +1,9 @@
 {
   "name"          : "http-console",
-  "description"   : "Speak HTTP like a native",
-  "url"           : "http://github.com/cloudhead/http-console",
+  "description"   : "Speak HTTP like a local",
+  "url"           : "https://github.com/cloudhead/http-console",
   "keywords"      : ["http", "console", "repl"],
-  "author"        : "Alexis Sellier <self@cloudhead.net>",
+  "author"        : "Alexis Sellier <self@cloudhead.io>",
   "contributors"  : [],
   "dependencies"  : { "eyes": ">=0.1.4" },
   "version"       : "0.6.5",
